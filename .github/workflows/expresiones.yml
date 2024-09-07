@@ -1,0 +1,30 @@
+name: Expression
+
+on:
+  workflow_dispatch:
+    inputs:
+      edad:
+        description: 'Edad'
+        required: true
+        type: string
+      nombre:
+        description: 'Tu nombre'
+        required: true
+        default: 'jesus'
+        type: string
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Definir edad como variable
+        run: echo "EDAD=${{ github.event.inputs.edad }}" >> $GITHUB_ENV
+
+      - name: Mayor de edad
+        if: ${{ env.EDAD }} >= 18
+        run: echo "${{ github.event.inputs.nombre }} es mayor de edad"
+
+      - name: Menor de edad
+        if: ${{ env.EDAD }} < 18
+        run: echo "${{ github.event.inputs.nombre }} es menor de edad"
