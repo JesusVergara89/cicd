@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main","aprendiendo-github-actions" ]
+  pull_request:
+    branches: [ "main","aprendiendo-github-actions" ]
+  issues:
+    branches: [ "main","aprendiendo-github-actions" ]
+    types: [opened,edited,closed]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+         python-version: '3.10' 
+    - run: python hola-mundo.py
