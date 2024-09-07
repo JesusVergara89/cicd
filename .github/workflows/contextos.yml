@@ -1,0 +1,16 @@
+name: using context
+run-name: Using contexts
+
+on:
+  push:
+    branches:
+      - main
+      - aprendiendo-github-actions
+
+jobs:
+  check-main:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Desplegando en la rama ${{ github.ref }}"
