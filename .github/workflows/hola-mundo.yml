@@ -1,0 +1,24 @@
+name: Execute a Python Script
+
+on:
+  push:
+    branches:
+      - aprendiendo-github-actions 
+
+jobs:
+  hola-mundo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v3
+        with:
+          ref: aprendiendo-github-actions 
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  
+
+      - name: Ejecutar Hola-Mundo.py
+        run: python Hola-Mundo.py 
