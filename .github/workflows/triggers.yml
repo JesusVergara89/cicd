@@ -1,0 +1,23 @@
+name: hello-world  
+run-name: mi primer workflow!
+
+on: [push] 
+
+jobs: 
+  hello-world: 
+    runs-on: ubuntu-latest  
+
+    steps: 
+      - uses: actions/checkout@v3 
+
+      - name: Configurar Python 
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  
+
+      - name: Instalar dependencias 
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Ejecutar main.py  
+        run: python Hola-Mundo.py
