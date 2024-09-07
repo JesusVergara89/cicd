@@ -2,11 +2,11 @@ name: CI
 
 on:
   push:
-    branches: [ "main","aprendiendo-github-actions" ]
+    branches: ["aprendiendo-github-actions" ]
   pull_request:
-    branches: [ "main","aprendiendo-github-actions" ]
+    branches: ["aprendiendo-github-actions" ]
   issues:
-    branches: [ "main","aprendiendo-github-actions" ]
+    branches: ["aprendiendo-github-actions" ]
     types: [opened,edited,closed]
 
   workflow_dispatch:
